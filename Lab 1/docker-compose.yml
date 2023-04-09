@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+
+  health-checker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./HealthChecker.sh:/app/HealthChecker.sh:ro
