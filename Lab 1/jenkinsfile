@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh '''
                 cd "Lab 1"
-                docker build -t MyImage
+                docker build -t build-lab-1
                 '''
             }
         }
