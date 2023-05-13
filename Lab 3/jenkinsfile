@@ -10,6 +10,7 @@ pipeline {
             steps {
                 sh '''
                 cd ../
+                ls
                 cd "Lab 1"
                 docker build -t build-lab-1 .
                 '''
