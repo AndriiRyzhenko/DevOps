@@ -9,9 +9,11 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
+                ls
                 cd ../
                 ls
                 cd "Lab-1"
+                ls
                 docker build -t build-lab-1 .
                 '''
             }
