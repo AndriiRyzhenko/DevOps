@@ -9,7 +9,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh '''
-                cd "Lab 1"
+                cd "../Lab 1"
                 docker build -t build-lab-1 .
                 '''
             }
