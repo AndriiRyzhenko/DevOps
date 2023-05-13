@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                cd Lab1
+                docker build -t MyImage
+                '''
+            }
+        }
+    }
+}
