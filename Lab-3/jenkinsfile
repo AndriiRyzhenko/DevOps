@@ -11,7 +11,7 @@ pipeline {
                 sh '''
                 cd ../
                 ls
-                cd "Lab 1"
+                cd "Lab-1"
                 docker build -t build-lab-1 .
                 '''
             }
