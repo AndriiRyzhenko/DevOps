@@ -1,12 +1,10 @@
-FROM alpine:latest
-
+FROM alpine:3.17
 RUN apk add --no-cache curl
 
-RUN mkdir -p /run/nginx
+WORKDIR /app
+COPY ./HealthChecker.sh ./
+RUN chmod +x ./HealthChecker.sh
 
-COPY HealthChecker.sh /app/HealthChecker.sh
-RUN chmod +x /app/HealthChecker.sh
-
-RUN echo "* * * * * sh /app/HealthChecker.sh" > /etc/crontabs/root
+RUN echo "* * * * * /bin/sh /app/HealthChecker.sh" >> /etc/crontabs/root
 
 CMD ["crond", "-f"]

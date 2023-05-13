@@ -1,14 +1,15 @@
 version: "3"
-
 services:
-  web:
+  nginx-server:
     image: nginx:latest
+    container_name: nginxserver-1
     ports:
-      - "8080:80"
+      - "8050:80"
 
-  health-checker:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  health-check:
+    build: .
+    container_name: healthchecker-1
     volumes:
-      - ./HealthChecker.sh:/app/HealthChecker.sh:ro
+      - ./logs:/logs
+    depends_on:
+      - nginx-server
